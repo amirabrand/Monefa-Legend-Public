@@ -3,16 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Monefa Legend | بازی استراتژیک آنلاین</title>
-<meta name="description" content="Monefa Legend — بازی استراتژیک آنلاین در مرورگر با سبک Travian: دهکده بساز، ارتش آموزش بده، اتحاد تشکیل بده و بر عجایب جهان فتح کن.">
+<title>Monefa Legend | بازی استراتژیک آنلاین در مرورگر</title>
+<meta name="description" content="Monefa Legend — بازی استراتژیک آنلاین در مرورگر با سبک Travian: دهکده بساز، ارتش آموزش بده، اتحاد تشکیل بده و بر عجایب جهان فتح کن. اسکرین‌شات‌های واقعی از سرور زنده.">
+<meta property="og:title" content="Monefa Legend — استراتژیک آنلاین در مرورگر">
+<meta property="og:image" content="shots/village.jpg">
 <style>
   :root{
-    --bg:#0f1420; --bg2:#151c2c; --card:#1b2437; --line:#2a3550;
+    --bg:#0f1420; --bg2:#141b2b; --card:#1b2437; --line:#2a3550;
     --txt:#e8ecf4; --mut:#9aa7bd;
     --gold:#e8b64c; --gold2:#c9922c;
-    --green:#5fb878; --blue:#5a9bd8; --red:#d96a5f;
+    --green:#5fb878; --blue:#5a9bd8; --red:#d96a5f; --purple:#a98ad4;
   }
   *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{
     background:var(--bg); color:var(--txt);
     font-family:"Vazirmatn","IRANSans",Tahoma,"Segoe UI",sans-serif;
@@ -20,29 +23,34 @@
   }
   a{color:var(--gold);text-decoration:none}
   a:hover{text-decoration:underline}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  .wrap{max-width:1150px;margin:0 auto;padding:0 20px}
 
-  /* hero */
+  /* ===== hero with real screenshot ===== */
   header{
-    position:relative; text-align:center; padding:110px 20px 90px;
+    position:relative; text-align:center; padding:130px 20px 110px;
     background:
-      radial-gradient(1200px 500px at 50% -10%, rgba(232,182,76,.16), transparent 60%),
-      radial-gradient(800px 400px at 15% 110%, rgba(90,155,216,.12), transparent 60%),
-      radial-gradient(800px 400px at 85% 110%, rgba(95,184,120,.10), transparent 60%),
-      linear-gradient(180deg,#0d1119 0%, var(--bg) 100%);
+      linear-gradient(180deg, rgba(13,17,25,.55) 0%, rgba(13,17,25,.75) 55%, var(--bg) 100%),
+      url("shots/village.jpg") center 30% / cover no-repeat;
     border-bottom:1px solid var(--line);
   }
-  .crest{font-size:64px; filter:drop-shadow(0 6px 18px rgba(232,182,76,.35))}
+  header::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(900px 380px at 50% 118%, rgba(232,182,76,.18), transparent 65%);
+    pointer-events:none;
+  }
+  .crest{font-size:58px; filter:drop-shadow(0 6px 18px rgba(0,0,0,.6))}
   h1{
-    font-size:clamp(34px,6vw,58px); margin:14px 0 6px; letter-spacing:.5px;
-    background:linear-gradient(180deg,#f4d488,#c9922c);
+    font-size:clamp(36px,6.4vw,62px); margin:10px 0 6px; letter-spacing:.5px;
+    text-shadow:0 4px 24px rgba(0,0,0,.75);
+    background:linear-gradient(180deg,#f8dda0,#c9922c);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-  .tag{color:var(--mut); font-size:clamp(15px,2.4vw,19px); max-width:640px;margin:0 auto}
+  .tag{color:#e6ebf5; font-size:clamp(15px,2.4vw,19px); max-width:680px;margin:0 auto;
+       text-shadow:0 2px 12px rgba(0,0,0,.8)}
   .badges{margin-top:26px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
   .badge{
-    border:1px solid var(--line); background:var(--card); color:var(--txt);
-    padding:7px 16px; border-radius:999px; font-size:13.5px;
+    border:1px solid rgba(232,182,76,.4); background:rgba(15,20,32,.72); color:var(--txt);
+    padding:7px 16px; border-radius:999px; font-size:13.5px; backdrop-filter:blur(4px);
   }
   .cta{margin-top:34px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
   .btn{
@@ -50,17 +58,47 @@
     transition:.2s transform,.2s box-shadow;
   }
   .btn:hover{transform:translateY(-2px); text-decoration:none}
-  .btn-gold{background:linear-gradient(180deg,var(--gold),var(--gold2)); color:#241a05; box-shadow:0 8px 24px rgba(232,182,76,.25)}
-  .btn-ghost{border:1px solid var(--line); color:var(--txt); background:transparent}
+  .btn-gold{background:linear-gradient(180deg,var(--gold),var(--gold2)); color:#241a05; box-shadow:0 8px 24px rgba(232,182,76,.3)}
+  .btn-ghost{border:1px solid rgba(232,182,76,.5); color:var(--txt); background:rgba(15,20,32,.6); backdrop-filter:blur(4px)}
   .btn-ghost:hover{border-color:var(--gold)}
+  .hero-note{margin-top:20px; color:#c3cbdb; font-size:13px; text-shadow:0 1px 8px rgba(0,0,0,.8)}
 
-  /* sections */
-  section{padding:70px 0}
+  /* ===== sections ===== */
+  section{padding:74px 0}
   section:nth-of-type(even){background:var(--bg2)}
   h2{font-size:clamp(24px,4vw,34px); text-align:center; margin-bottom:10px}
-  .sub{color:var(--mut); text-align:center; max-width:680px; margin:0 auto 44px}
+  .sub{color:var(--mut); text-align:center; max-width:700px; margin:0 auto 46px}
   .rule{width:64px;height:3px;background:linear-gradient(90deg,var(--gold),transparent);margin:14px auto 0;border-radius:2px}
 
+  /* ===== real screenshot gallery ===== */
+  .gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px}
+  .shot{
+    position:relative; border-radius:14px; overflow:hidden; cursor:zoom-in;
+    border:1px solid var(--line); background:var(--card);
+    transition:.25s border-color,.25s transform,.25s box-shadow;
+  }
+  .shot:hover{border-color:var(--gold); transform:translateY(-4px); box-shadow:0 14px 34px rgba(0,0,0,.45)}
+  .shot img{width:100%; height:auto; display:block; aspect-ratio:16/9; object-fit:cover; object-position:top center}
+  .shot .cap{
+    position:absolute; inset:auto 0 0 0; padding:26px 16px 12px;
+    background:linear-gradient(180deg,transparent, rgba(10,13,20,.92));
+    font-size:14.5px; font-weight:600; color:#f0d896;
+  }
+  .shot.wide{grid-column:1 / -1}
+  .shot.wide img{aspect-ratio:21/9}
+  .shot.tall img{aspect-ratio:4/3}
+
+  /* lightbox */
+  .lb{
+    position:fixed; inset:0; background:rgba(5,8,14,.94); display:none;
+    align-items:center; justify-content:center; z-index:99; padding:24px; cursor:zoom-out;
+  }
+  .lb.on{display:flex}
+  .lb img{max-width:min(1400px,96vw); max-height:92vh; border-radius:10px; border:1px solid var(--line); box-shadow:0 20px 60px rgba(0,0,0,.8)}
+  .lb .x{position:absolute; top:18px; left:22px; font-size:30px; color:#fff; opacity:.8; cursor:pointer; line-height:1}
+  .lb .x:hover{opacity:1}
+
+  /* feature cards */
   .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px}
   .card{
     background:var(--card); border:1px solid var(--line); border-radius:16px;
@@ -71,20 +109,19 @@
   .card h3{font-size:18px; margin-bottom:8px; color:#f0d08a}
   .card p{color:var(--mut); font-size:14.5px}
 
-  /* tribes */
-  .tribes{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
-  .tribe{border-radius:16px; padding:28px 24px; border:1px solid var(--line); background:var(--card); position:relative; overflow:hidden}
+  /* tribes — 5 tribes */
+  .tribes{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px}
+  .tribe{border-radius:16px; padding:24px 20px; border:1px solid var(--line); background:var(--card); position:relative; overflow:hidden}
   .tribe::before{content:""; position:absolute; inset:0 0 auto 0; height:4px}
   .tribe.roman::before{background:var(--red)} .tribe.teuton::before{background:var(--gold)}
-  .tribe.gaul::before{background:var(--green)}
-  .tribe .em{font-size:42px}
-  .tribe h3{margin:10px 0 6px; font-size:20px}
-  .tribe p{color:var(--mut); font-size:14.5px}
-  .tribe ul{margin:12px 0 0; padding-right:18px; color:#c7d0e0; font-size:13.5px}
-  .tribe li{margin-bottom:4px}
+  .tribe.gaul::before{background:var(--green)} .tribe.egypt::before{background:var(--gold2)}
+  .tribe.hun::before{background:var(--purple)}
+  .tribe .em{font-size:38px}
+  .tribe h3{margin:10px 0 6px; font-size:18px}
+  .tribe p{color:var(--mut); font-size:13.5px}
 
   /* steps */
-  .steps{max-width:760px; margin:0 auto}
+  .steps{max-width:780px; margin:0 auto}
   .step{display:flex; gap:18px; margin-bottom:22px; align-items:flex-start}
   .step .n{
     flex:0 0 44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
@@ -118,14 +155,36 @@
     <span class="badge">🌐 فارسی‌سازی کامل</span>
     <span class="badge">⚔️ PvP + اتحادها</span>
     <span class="badge">🦸 سیستم هیرو و مأموریت</span>
-    <span class="badge">🗺️ نقشه ۱۰۰×۱۰۰</span>
+    <span class="badge">🗺️ نقشه جهان با اُassisها</span>
     <span class="badge">💎 اقتصاد طلا</span>
+    <span class="badge">🏛️ ۵ قبیله قابل انتخاب</span>
   </div>
   <div class="cta">
-    <a class="btn btn-gold" href="https://github.com/amirabrand/Monefa-Legend" target="_blank" rel="noopener">📦 ریپوی خصوصی پروژه</a>
+    <a class="btn btn-gold" href="#gallery">📸 تماشای بازی</a>
+    <a class="btn btn-ghost" href="https://github.com/amirabrand/Monefa-Legend" target="_blank" rel="noopener">📦 ریپوی خصوصی پروژه</a>
     <a class="btn btn-ghost" href="#install">🚀 راهنمای نصب</a>
   </div>
+  <div class="hero-note">✨ تمام تصاویر این صفحه، اسکرین‌شات واقعی از سرور زنده‌ی بازی است — نه رندر و موکاپ.</div>
 </header>
+
+<section id="gallery">
+  <div class="wrap">
+    <h2>نمایی از بازی</h2>
+    <div class="rule"></div>
+    <p class="sub">اسکرین‌شات‌های واقعی از نسخه‌ی نصب‌شده روی سرور — از ورود و انتخاب قبیله تا نقشه‌ی جهان و رتبه‌بندی. روی هر تصویر کلیک کنید تا بزرگ شود.</p>
+    <div class="gallery">
+      <div class="shot wide"><img src="shots/village.jpg" alt="نمای دهکده — مزارع منابع" loading="lazy"><div class="cap">🏘️ نمای دهکده — مزارع چوب، خاک، آهن و گندم با سطح هر مزرعه</div></div>
+      <div class="shot"><img src="shots/center.jpg" alt="مرکز دهکده و ساختمان‌ها" loading="lazy"><div class="cap">🏛️ مرکز دهکده — محوطه‌ی ساختمان‌ها داخل دیوار شهر</div></div>
+      <div class="shot"><img src="shots/map.jpg" alt="نقشه جهان" loading="lazy"><div class="cap">🗺️ نقشه جهان — اُassisها، دریاچه‌ها و دهکده‌های همسایه</div></div>
+      <div class="shot"><img src="shots/tribes.jpg" alt="انتخاب قبیله" loading="lazy"><div class="cap">⚔️ انتخاب قبیله — ۵ قبیله با سبک بازی متفاوت</div></div>
+      <div class="shot"><img src="shots/hero.jpg" alt="صفحه هیرو" loading="lazy"><div class="cap">🦸 هیرو — ویژگی‌ها، تجربه و تجهیزات</div></div>
+      <div class="shot"><img src="shots/building.jpg" alt="ساخت و ارتقای ساختمان" loading="lazy"><div class="cap">🏗️ ساخت‌وساز — هزینه‌ی منابع و زمان ارتقا</div></div>
+      <div class="shot"><img src="shots/ranking.jpg" alt="رتبه‌بندی بازیکنان" loading="lazy"><div class="cap">🏆 آمار و رتبه‌بندی — جدول برترین‌ها به تفکیک شاخه</div></div>
+      <div class="shot"><img src="shots/login.jpg" alt="صفحه ورود" loading="lazy"><div class="cap">🔐 صفحه ورود — با اطلاعات سرور و زمان‌بندی رویدادها</div></div>
+      <div class="shot"><img src="shots/position.jpg" alt="انتخاب موقعیت شروع" loading="lazy"><div class="cap">🧭 انتخاب موقعیت شروع در نقشه</div></div>
+    </div>
+  </div>
+</section>
 
 <section>
   <div class="wrap">
@@ -145,28 +204,15 @@
 
 <section>
   <div class="wrap">
-    <h2>سه قبیله، سه سبک بازی</h2>
+    <h2>پنج قبیله، پنج سبک بازی</h2>
     <div class="rule"></div>
-    <p class="sub">در شروع بازی یکی از سه قبیله را انتخاب می‌کنی؛ انتخابت کل استراتژی‌ات را تعیین می‌کند.</p>
+    <p class="sub">در شروع بازی یکی از پنج قبیله را انتخاب می‌کنی؛ انتخابت کل استراتژی‌ات را تعیین می‌کند.</p>
     <div class="tribes">
-      <div class="tribe roman">
-        <div class="em">🏛️</div>
-        <h3>رومی‌ها (Romans)</h3>
-        <p>نیروی متوازن و منظم امپراتوری؛ هم حمله قوی، هم دفاع محکم.</p>
-        <ul><li>سربازسازی هم‌زمان ساختمان و نیرو</li><li>واحدهای قوی اما گران</li><li>مناسب بازیکنان دقیق و برنامه‌ریز</li></ul>
-      </div>
-      <div class="tribe teuton">
-        <div class="em">🪓</div>
-        <h3>توتن‌ها (Teutons)</h3>
-        <p>مهاجمان خشن و ارزان؛ با غارت سریع حریف را زمین‌گیر می‌کنند.</p>
-        <ul><li>واحدهای ارزان و پرتعداد</li><li>غارت سریع منابع</li><li>مناسب بازیکنان تهاجمی</li></ul>
-      </div>
-      <div class="tribe gaul">
-        <div class="em">🌿</div>
-        <h3>گول‌ها (Gauls)</h3>
-        <p>مدافعان زیرک و بزرگ‌ترین کشاورزان؛ با تله و دیوار دفاع می‌شوند.</p>
-        <ul><li>تله‌پای حیوانات و دفاع قوی</li><li>بازرگان‌های سریع و oasis دوست</li><li>مناسب بازیکنان مهاجرت‌محور</li></ul>
-      </div>
+      <div class="tribe roman"><div class="em">🏛️</div><h3>رومی‌ها</h3><p>نیروی متوازن و منظم امپراتوری — هم حمله‌ی قوی، هم دفاع محکم؛ مناسب بازیکنان دقیق و برنامه‌ریز.</p></div>
+      <div class="tribe teuton"><div class="em">🪓</div><h3>توتون‌ها</h3><p>مهاجمان خشن و ارزان — با غارت سریع حریف را زمین‌گیر می‌کنند؛ مناسب سبک تهاجمی.</p></div>
+      <div class="tribe gaul"><div class="em">🌿</div><h3>گول‌ها</h3><p>مدافعان زیرک و بزرگ‌ترین کشاورزان — با تله و دیوار دفاع می‌شوند؛ مناسب بازی مهاجرت‌محور.</p></div>
+      <div class="tribe egypt"><div class="em">🐫</div><h3>مصری‌ها</h3><p>اقتصاد قدرتمند و واحدهای خاص — تمرکز بر تولید پایدار و منابع فراوان.</p></div>
+      <div class="tribe hun"><div class="em">🐎</div><h3>هون‌ها</h3><p>سوارکاران تند و برنده — سرعت و شتاب در یورش‌ها، مناسب بازیکنان چابک.</p></div>
     </div>
   </div>
 </section>
@@ -211,6 +257,20 @@
     </div>
   </div>
 </footer>
+
+<div class="lb" id="lb"><span class="x">✕</span><img src="" alt="نمای بزرگ"></div>
+<script>
+  var lb = document.getElementById('lb'), lbImg = lb.querySelector('img');
+  document.querySelectorAll('.shot').forEach(function (s) {
+    s.addEventListener('click', function () {
+      var im = s.querySelector('img');
+      lbImg.src = im.src;
+      lb.classList.add('on');
+    });
+  });
+  lb.addEventListener('click', function () { lb.classList.remove('on'); lbImg.src = ''; });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('on'); });
+</script>
 
 </body>
 </html>
