@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monefa Legend | بازی استراتژیک آنلاین</title>
+<meta name="description" content="Monefa Legend — بازی استراتژیک آنلاین در مرورگر با سبک Travian: دهکده بساز، ارتش آموزش بده، اتحاد تشکیل بده و بر عجایب جهان فتح کن.">
+<style>
+  :root{
+    --bg:#0f1420; --bg2:#151c2c; --card:#1b2437; --line:#2a3550;
+    --txt:#e8ecf4; --mut:#9aa7bd;
+    --gold:#e8b64c; --gold2:#c9922c;
+    --green:#5fb878; --blue:#5a9bd8; --red:#d96a5f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--txt);
+    font-family:"Vazirmatn","IRANSans",Tahoma,"Segoe UI",sans-serif;
+    line-height:1.9; overflow-x:hidden;
+  }
+  a{color:var(--gold);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* hero */
+  header{
+    position:relative; text-align:center; padding:110px 20px 90px;
+    background:
+      radial-gradient(1200px 500px at 50% -10%, rgba(232,182,76,.16), transparent 60%),
+      radial-gradient(800px 400px at 15% 110%, rgba(90,155,216,.12), transparent 60%),
+      radial-gradient(800px 400px at 85% 110%, rgba(95,184,120,.10), transparent 60%),
+      linear-gradient(180deg,#0d1119 0%, var(--bg) 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .crest{font-size:64px; filter:drop-shadow(0 6px 18px rgba(232,182,76,.35))}
+  h1{
+    font-size:clamp(34px,6vw,58px); margin:14px 0 6px; letter-spacing:.5px;
+    background:linear-gradient(180deg,#f4d488,#c9922c);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .tag{color:var(--mut); font-size:clamp(15px,2.4vw,19px); max-width:640px;margin:0 auto}
+  .badges{margin-top:26px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
+  .badge{
+    border:1px solid var(--line); background:var(--card); color:var(--txt);
+    padding:7px 16px; border-radius:999px; font-size:13.5px;
+  }
+  .cta{margin-top:34px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
+  .btn{
+    display:inline-block; padding:13px 34px; border-radius:12px; font-size:16px; font-weight:700;
+    transition:.2s transform,.2s box-shadow;
+  }
+  .btn:hover{transform:translateY(-2px); text-decoration:none}
+  .btn-gold{background:linear-gradient(180deg,var(--gold),var(--gold2)); color:#241a05; box-shadow:0 8px 24px rgba(232,182,76,.25)}
+  .btn-ghost{border:1px solid var(--line); color:var(--txt); background:transparent}
+  .btn-ghost:hover{border-color:var(--gold)}
+
+  /* sections */
+  section{padding:70px 0}
+  section:nth-of-type(even){background:var(--bg2)}
+  h2{font-size:clamp(24px,4vw,34px); text-align:center; margin-bottom:10px}
+  .sub{color:var(--mut); text-align:center; max-width:680px; margin:0 auto 44px}
+  .rule{width:64px;height:3px;background:linear-gradient(90deg,var(--gold),transparent);margin:14px auto 0;border-radius:2px}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:26px 22px; transition:.2s border-color,.2s transform;
+  }
+  .card:hover{border-color:var(--gold); transform:translateY(-3px)}
+  .card .ico{font-size:34px; margin-bottom:12px}
+  .card h3{font-size:18px; margin-bottom:8px; color:#f0d08a}
+  .card p{color:var(--mut); font-size:14.5px}
+
+  /* tribes */
+  .tribes{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+  .tribe{border-radius:16px; padding:28px 24px; border:1px solid var(--line); background:var(--card); position:relative; overflow:hidden}
+  .tribe::before{content:""; position:absolute; inset:0 0 auto 0; height:4px}
+  .tribe.roman::before{background:var(--red)} .tribe.teuton::before{background:var(--gold)}
+  .tribe.gaul::before{background:var(--green)}
+  .tribe .em{font-size:42px}
+  .tribe h3{margin:10px 0 6px; font-size:20px}
+  .tribe p{color:var(--mut); font-size:14.5px}
+  .tribe ul{margin:12px 0 0; padding-right:18px; color:#c7d0e0; font-size:13.5px}
+  .tribe li{margin-bottom:4px}
+
+  /* steps */
+  .steps{max-width:760px; margin:0 auto}
+  .step{display:flex; gap:18px; margin-bottom:22px; align-items:flex-start}
+  .step .n{
+    flex:0 0 44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(180deg,var(--gold),var(--gold2)); color:#241a05; font-weight:800; font-size:18px;
+  }
+  .step .t{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 18px; flex:1}
+  .step .t b{color:#f0d08a}
+  .step code{background:#0d1420; border:1px solid var(--line); padding:2px 8px; border-radius:6px; font-size:13px; direction:ltr; display:inline-block}
+
+  /* admin */
+  .panelbox{
+    max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:26px 28px;
+  }
+  .panelbox table{width:100%; border-collapse:collapse; font-size:14.5px}
+  .panelbox td{padding:10px 6px; border-bottom:1px dashed var(--line)}
+  .panelbox td:first-child{color:var(--mut); width:180px}
+  .panelbox tr:last-child td{border-bottom:none}
+
+  footer{border-top:1px solid var(--line); padding:34px 0; text-align:center; color:var(--mut); font-size:14px}
+  footer .l{margin-top:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="crest">🏰</div>
+  <h1>Monefa Legend</h1>
+  <p class="tag">بازی استراتژیک آنلاین در مرورگر — دهکده‌ات را بساز، ارتش بیاور، اتحاد تشکیل بده و برای فتح «عجایب جهان» با هزاران بازیکن رقابت کن.</p>
+  <div class="badges">
+    <span class="badge">🌐 فارسی‌سازی کامل</span>
+    <span class="badge">⚔️ PvP + اتحادها</span>
+    <span class="badge">🦸 سیستم هیرو و مأموریت</span>
+    <span class="badge">🗺️ نقشه ۱۰۰×۱۰۰</span>
+    <span class="badge">💎 اقتصاد طلا</span>
+  </div>
+  <div class="cta">
+    <a class="btn btn-gold" href="https://github.com/amirabrand/Monefa-Legend" target="_blank" rel="noopener">📦 ریپوی خصوصی پروژه</a>
+    <a class="btn btn-ghost" href="#install">🚀 راهنمای نصب</a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>ویژگی‌های بازی</h2>
+    <div class="rule"></div>
+    <p class="sub">همه‌چیز یک بازی استراتژیک کلاسیک — با گرافیک لوکال، بدون وابستگی به سرویس خارجی.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🏘️</div><h3>دهکده و منابع</h3><p>چوب، خاک، آهن و گندم را مدیریت کن؛ انبارها را ارتقا بده و از دهکده‌های oasis برای بوست تولید استفاده کن.</p></div>
+      <div class="card"><div class="ico">🏗️</div><h3>بیش از ۳۰ ساختمان</h3><p>از سربازخانه، بازار و دیوار شهر تا کارگاه محاصره، مهمان‌سرا و عجایب جهان — هر ساختمان نقشی استراتژیک دارد.</p></div>
+      <div class="card"><div class="ico">⚔️</div><h3>نظامی کامل</h3><p>حمله، پشتیبانی، ربودن منابع، کت‌آلت و حمله‌ی گروهی هماهنگ؛ هر واحد مزیت و ضعف خودش را دارد.</p></div>
+      <div class="card"><div class="ico">🛡️</div><h3>اتحاد و دیپلماسی</h3><p>اتحاد بساز، فروم و پیام گروهی داشته باش، پیمان ببند و برای صدرنشینی جدول‌ها با هم متحد شو.</p></div>
+      <div class="card"><div class="ico">🦸</div><h3>هیرو و مأموریت</h3><p>هیروات را سطح‌بگیر، به مأموریت (Adventure) بفرست، در حراج آیتم بخر و مهارت‌هایش را تقویت کن.</p></div>
+      <div class="card"><div class="ico">🏆</div><h3>مدال و رتبه‌بندی</h3><p>جدول‌های برترین‌ها در شاخه‌های جمعیت، حمله، دفاع و... — مدال‌ها به‌صورت خودکار توزیع می‌شوند.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>سه قبیله، سه سبک بازی</h2>
+    <div class="rule"></div>
+    <p class="sub">در شروع بازی یکی از سه قبیله را انتخاب می‌کنی؛ انتخابت کل استراتژی‌ات را تعیین می‌کند.</p>
+    <div class="tribes">
+      <div class="tribe roman">
+        <div class="em">🏛️</div>
+        <h3>رومی‌ها (Romans)</h3>
+        <p>نیروی متوازن و منظم امپراتوری؛ هم حمله قوی، هم دفاع محکم.</p>
+        <ul><li>سربازسازی هم‌زمان ساختمان و نیرو</li><li>واحدهای قوی اما گران</li><li>مناسب بازیکنان دقیق و برنامه‌ریز</li></ul>
+      </div>
+      <div class="tribe teuton">
+        <div class="em">🪓</div>
+        <h3>توتن‌ها (Teutons)</h3>
+        <p>مهاجمان خشن و ارزان؛ با غارت سریع حریف را زمین‌گیر می‌کنند.</p>
+        <ul><li>واحدهای ارزان و پرتعداد</li><li>غارت سریع منابع</li><li>مناسب بازیکنان تهاجمی</li></ul>
+      </div>
+      <div class="tribe gaul">
+        <div class="em">🌿</div>
+        <h3>گول‌ها (Gauls)</h3>
+        <p>مدافعان زیرک و بزرگ‌ترین کشاورزان؛ با تله و دیوار دفاع می‌شوند.</p>
+        <ul><li>تله‌پای حیوانات و دفاع قوی</li><li>بازرگان‌های سریع و oasis دوست</li><li>مناسب بازیکنان مهاجرت‌محور</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>نصب روی سرور اوبونتو</h2>
+    <div class="rule"></div>
+    <p class="sub">کل بسته (فایل‌های بازی + نصاب + دامپ دیتابیس) در ریپوی خصوصی <b>Monefa-Legend</b> آماده است؛ نصب روی اوبونتو فقط یک فرمان است.</p>
+    <div class="steps">
+      <div class="step"><div class="n">۱</div><div class="t"><b>کلون ریپو:</b><br><code>git clone https://github.com/amirabrand/Monefa-Legend.git &amp;&amp; cd Monefa-Legend</code></div></div>
+      <div class="step"><div class="n">۲</div><div class="t"><b>یک فرمان نصب:</b><br><code>sudo bash install_ubuntu.sh --domain=game.example.com --admin-pass='رمز-قوی'</code><br><span style="color:var(--mut);font-size:13px">آپاچی + ماریادی‌بی + PHP و افزونه‌ها را نصب، دیتابیس را می‌سازد، کانفیگ را بیرون از web root می‌نویسد، اکانت ادمین را می‌سازد و cron ساعت بازی را فعال می‌کند.</span></div></div>
+      <div class="step"><div class="n">۳</div><div class="t"><b>بازی را باز کن:</b> <code>http://دامنه/login.php</code><br><span style="color:var(--mut);font-size:13px">پنل مدیریت: <code style="direction:ltr;display:inline-block">/TdPaneLXP/</code> — با همان یوزر و رمز ادمین.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>پنل مدیریت (Admin Panel)</h2>
+    <div class="rule"></div>
+    <p class="sub">مدیریت کامل سرور بازی از یک پنل اختصاصی:</p>
+    <div class="panelbox">
+      <table>
+        <tr><td>آدرس پنل</td><td><code style="direction:ltr;display:inline-block">/TdPaneLXP/</code></td></tr>
+        <tr><td>ورود</td><td>با اکانت ادمین (دسترسی ۹) — هنگام نصب تعیین می‌شود</td></tr>
+        <tr><td>مدیریت بازیکنان</td><td>جست‌وجو، بستن/آزادسازی، ویرایش منابع و طلا</td></tr>
+        <tr><td>مدیریت سرور</td><td>گزارش‌ها، پیام همگانی، آیتم‌های حراج، NPC و رویدادها</td></tr>
+        <tr><td>امنیت</td><td>کوکی رمزنگاری‌شده، مسدودسازی فایل‌های حساس با htaccess</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b style="color:#f0d08a">Monefa Legend</b> — استراتژیک، همیشه‌آنلاین، فارسی.</div>
+    <div class="l">
+      <a href="https://github.com/amirabrand/Monefa-Legend" target="_blank" rel="noopener">ریپوی خصوصی پروژه</a>
+      ·
+      بر پایه‌ی موتورهای متن‌باز TravianZ/T4
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
